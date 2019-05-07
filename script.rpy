@@ -31,19 +31,24 @@ label start:
     # Presenta las líneas del diálogo.
     # P espera un tiempo y luego baja a nueva linea
 
-    e "hola aventurero,{p=2.0}¿cual es tu nombre?"
+    e "¿Como te llamas hoy ,{p=2.0} aventurero?"
     $ p = renpy.input("¿cual es tu nombre?")
 
-    e "%(p)s que estupido, te crees muy valiente no?,\nvienes a estas tierras
-     aventurero con ansias de vino y prostitutas maldito enfermo."
+
+    e "%(p)s ja... "
+    "Es una tarde como cualquier otra, el bar esta lleno de aventureros y viajeros
+    que van de paso por SOS, aprovechando posada para entregarse al vicio del licor"
+    "tu no estas disfrutando tanto, vienes aqui despues de una semana de viaje con un
+    odjetivo menos ludico "
 
 
-    "el bar esta lleno y el ruido atesta el establecibimiento Ardio tu (amigo) te pasa una espada corta"
+
+    "Ardio... 'tu amigo' te pasa una espada corta "
 
     $ d20 = renpy.random.randint(1, 20)
 
     menu:
-     "la cogeras?"
+     "la agarras?"
 
      "si.":
          jump si
@@ -54,8 +59,11 @@ label start:
     # esto termina el juego
 
     label si:
-        "la agarras agilmente sin que aparentemente nadie lo note, Oros aquel
-         ogro que se te encargo matar esta detras de ti"
+        "tu la agarras agilmente sin que aparentemente nadie lo note"
+        "tu odjetivo se encuentra a tus espaldas, Oros un Ogro que usa el pelo alto
+         y que usa un gran garrote como arma "
+        "una descripcion vaga que a ti te basta porque le reconoces como uno de
+         los miembros mas infames de los Diminú"
 
         show ogro with dissolve
 
@@ -90,9 +98,9 @@ label start:
                     jump dire
 
             label sigi:
-                " El asiente y hace ademanes de caminar a la ventana y asi rodearle, tu te envuelves entre los salvajes que estan bebiendo a estas horas de la tarde"
-                "mientras te diriges hacia el
-                 Entonces, por fin llega un punto donde lo puedes atacar sin que lo note "
+                " El asiente y hace ademanes de caminar a la ventana y asi rodearle, tu te envuelves entre los salvajes que estan bebiendo a estas horas de la tarde
+                para acercarte sin ser visto"
+                "LO logras  "
 
                 menu:
                     "llegas a un punto donde lo puedes atacar sin que lo note "
@@ -116,10 +124,11 @@ label start:
                              "pero no lo logra "
                              #call combate
 
-                    "llamarle con una line Epica ":
+                    "llamarle con una linea Epica ":
 
-                        "Oros... Ogro estupido, Hoy sera el dia que perderas la cabeza por lo que hiciste
-					    en Amadore, y le atacas con un amplio corte en horizontal  "
+                        "-Hola señor esto es un regalo, perderas la cabeza por lo que hiciste
+					    en Amadore-"
+                        "y le atacas con un amplio corte en horizontal  "
                         $ x = rempy.random.randint(1, 20)
 
                         if x <= 3:
@@ -135,9 +144,10 @@ label start:
 
                     " LLamarle e insultarle ":
 
-                        "le dices: Oros... pedazo de mierda, Te voy a partir en trozos hijo de puta
-					    esto viene de parte de la gente de Amadore,
-					    y le atacas con un amplio corte en horizontal  "
+                        yo" Oros... pedazo de mierda, Te voy a partir en trozos hijo de puta,
+					    esto viene de parte de la gente de Amadore,"
+                        " y le atacas con un amplio corte en horizontal"
+
                         $ x = rempy.random.randint(1, 20)
 
                         if x <= 2:
@@ -160,8 +170,7 @@ label start:
 						      un buen golpe antes que se levante"
                               #call combate
 
-                "Ardio mientras tu haces lo tuyo ataca a los acompañantes de Oros
-                y empiza la revuelta"
+                "y Ardio mientras tu haces lo tuyo ataca a los acompañantes de Oros, empiza la revuelta"
 
 
             label fren:
@@ -222,7 +231,7 @@ label start:
                 "...............  "
                 "...............  "
                 "¡¡¡Si vamos a matar a ese ogro de mierda¡¡¡    grita todo el mundo"
-                "se levanta todo el mundo y se le tiran encima a  Oros y los otros que lo acompañan "
+                "levantandose todos de su silla y se le tiran encima a Oros y los otros que lo acompañan "
                 " ... esto es muy estupido piensas tu,  pero aprocehas los acontecimientos,  Oros esta borracho y es todo el bar
                 contra él.... "
                 "de todas formas Oros es fuerte y los derrota despues de un rató "
@@ -371,8 +380,163 @@ label start:
          label normal:
 
              a"psshh.....psshhh....  {size=-5}cual es tu puto problema %(p)s me haces quedar como un estupido... vamos a matar a ese
-             ogro estupido ya....{/size}  estupido....      "
+             ogro estupido ya....{/size},  puto lerdo...    "
+             a" entonces... ¿cuando quieres atacar? "
 
+             menu:
+                 "¿ cuando crees que sera mejor atacar?"
+
+                 "Esperar la noche":
+                     jump noche2
+
+                 "Esperar un rató":
+                     jump rato2
+
+
+             label noche2:
+
+                 "Esperan que se haga de noche y Oros pasa todo el dia halli bebiendo, llegado al punto de incluso emborracharse;"
+                 "muy comveniente para ustedes... pero sin embargo Ardio a pesar de que tu intentaste que no bebiera se encuentra borracho tambien"
+                 menu:
+                     "hijo de puta":
+                         jump hp2
+
+                     "   cabron  ":
+                         jump hp2
+
+                     "pedazo de mierda":
+                         jump hp2
+
+                     "no decir nada...":
+                         jump nada2
+
+                 label hp2:
+                     "le regañas y el te contesta:    "
+                     a "¿!!! vamos a matar a ese Ogro mierda ya, no¡¡¡? "
+                     "...............  "
+                     "...............  "
+                     "¡¡¡Si vamos a matar a ese ogro de mierda¡¡¡    grita todo el mundo"
+                     "levantandose todos de su silla y se le tiran encima a Oros y los otros que lo acompañan "
+                     " ... esto es muy estupido piensas tu,  pero aprocehas los acontecimientos,  Oros esta borracho y es todo el bar
+                     contra él.... "
+                     "de todas formas Oros es fuerte y los derrota despues de un rató "
+                     "¡¡¡es tu momento, Oros esta cansado y herido, te lanzas al ataque  "
+                     #call combate
+
+                 label nada2:
+                     "piensas -pedazo de mierda- pero no dices nada"
+                     menu:
+                         "decirle que se quede ":
+                              jump sinA2
+                         "vamos a por Oros ya... ":
+                             jump Ar
+                     label sinA2:
+
+                          "el te responde -ughhhhhhhh - y se queda dormido.
+                          bueno, ahora estas tu solo pero tienes la ventaja de estar osbrio,
+                          ademas del factor sorpresa "
+                          "recuerda aventurero que ademas de tu Espada corta, llevas una miniballesta"
+
+                          menu:
+                             "acercarte y usar espada corta  ":
+                                 jump ec
+                             "usar la ballesta desde halli ":
+                                 jump mb2
+
+
+                          label mb2:
+                                  "tranquilamente le disparas con la ballesta"
+                                  $ x= ramdon.randit (1, 20)
+
+                                  if x>=0 and x<=18:
+                                      "golpeandolo con el perno en el brazo
+     							     El se voltea y te ve, con ojos perdidos de la borrachera"
+                                      "- ahora es el momento de los golpes - piensas "
+
+                                      #call combate
+
+                                  if x>=19:
+
+                                      "el pernon viaja precisamente por el aire clavandosele a ardio
+     							     en la cabeza, haciendolo sangrar y estar confundido
+     							     tu aprovechas esta situacion para acercarte a el y acuchillarle"
+
+                                      $ v= ramdon.randit (1, 20)
+
+                                      if v>=10:
+
+                                          "lo cual haces con suprema destreza degollandole por detras, llenando
+     								     asi todo el suelo con su sangre "
+                                          "ahora todo es mas sencillo solo tienes que encargarte de los otros
+                                          2 que le acompañaban "
+                                           #call combate
+
+                                      else:
+                                          "lo cual haces con suprema destreza clavandole la espada por el costado
+                                           haciendole un monton de daño
+                                           pero ahora si empieza el manbo "
+                                           #call combate
+
+             label rato2:
+                 "Tu insiste en mejor esperar un rató"
+                 "Esperan unos 20 minutos y Ardio tan impaciente como siempre, se levanta derrepente llamando un poco la atencion"
+
+                 menu:
+                    "¿te levantas?"
+
+                    "si.":
+                        "te levantas tras el rapido, haciendolo todo un poco mas sospechoso"
+                        "pero bien sabes que no lo podras comvencer asi que no gastas saliva intentandolo"
+                        "mas bien la desicion que tienes que tomar es..."
+
+                        menu:
+
+                            "¿te quedas detras?":
+                                "esta vez te quedas atras, de todas formas este movimiento tan poco elegante
+                                es culpa del invecil de Ardio"
+                                "y Ardio mientras tu piensas en esto, ataca a Oros asi nada mas, empezando una revuelta"
+                            #call combate
+
+
+                            "¿te adelantas?":
+                                " tu tomas la delantera como siempre
+                			    Y ya estando en esta situacion lo unico que te queda es atacar"
+
+
+                                $ x = random.randit(1, 20)
+
+
+                                if x<=2:
+                                     "pero resbalas causando que Ardio lo haga tras de ti, causando la risa de varios
+                			         y causando que Oros se percate de su precensia"
+                                else:
+                                     "y sorprendiendole le causas el primer golpe "
+                                     #call combate
+
+
+                    "no.":
+
+                        "Tu disimulas quedandote, el te mira y sigue sin mas"
+                        "-de todas formas tengo mi miniballesta y otro compañero no me vendria mal-    te dices;"
+                        " El ataca, y tu desde atraz disparas con la ballesta"
+                        $ x = random.randit (1, 20)
+
+
+                        if x<=3:
+                            "pero que cosa... de todos le das a Ardio en la espalda..
+                            esa no era tu intencion pero,
+                            -Bueno que mas da es hora de los golpes - dices tu "
+                            #call combate
+                        if x>=4 and x<=18:
+                            "golpeando a Oros con un perno en el brazo
+                            - ahora es el momento de los golpes - dices tu "
+                            #call combate
+                        if x>=19:
+                            "el pernon viaja precisamente por el aire clavandosele a ardio
+                        	en el pecho, causandole daño evidente "
+                             #call combate
+
+         return
 
 
 
